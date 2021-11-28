@@ -38,7 +38,7 @@ public class Driver {
                     if (result == 1) { // success storing user
                         System.out.println("You have succesfully created an acccount and you are now logged in.");
                     } else { // failure
-                        System.out.println("You are logged in, but we had trouble storing your account in the database.")
+                        System.out.println("You are logged in, but we had trouble storing your account in the database.");
                     }
                     return user;
                 }
@@ -200,7 +200,7 @@ public class Driver {
     // load the array list from text file using object input stream
     private static void loadUsers() {
         // try with resources -> no need to close
-        try (ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream("users.txt"))) {
+        try (ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream("groceries.txt"))) { // indescriptive name for text file
             Object obj = inputStream.readObject();
             // Check it's an ArrayList
             if (obj instanceof ArrayList<?>) {
@@ -228,7 +228,7 @@ public class Driver {
     // store the arraylist of users in a text file using object output stream
     private static int storeUsers() {
         // try with resources -> stream does not need to be closed
-        try (ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream("users.txt"))) {
+        try (ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream("groceries.txt"))) { // indescriptive name for text file
             outputStream.writeObject(users);
             return 1;
         } catch (Exception ex) {
