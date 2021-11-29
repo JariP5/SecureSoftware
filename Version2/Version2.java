@@ -8,6 +8,7 @@ public class Driver {
     private static Console cnsl;
     private static ArrayList<User> users = new ArrayList<>();
     private static String errorMessage = "Try again or enter 'b' to go back.";
+    private static final String secretKey = "ssshhhhhhhhhhh!!!!";
 
     // main menu presented when first time opening the program
     private static User inMainMenu() {
@@ -64,7 +65,7 @@ public class Driver {
         while (verifying) {
             char[] password = cnsl.readPassword("Enter employee password : "); // read password into character array
             // read password from file
-            String decryptedPassword = decryptPassword("Pass");
+            String decryptedPassword = AES.decrypt("xCjlaIOc56fpAFXUlGsv0g==", secretKey);
             if (decryptedPassword.equals(String.valueOf(password))) {
                 verifying = false;
             } else {
@@ -234,7 +235,7 @@ public class Driver {
         }
 
         // encrypt password
-        String encryptedPassword = encryptPassword(String.valueOf(password));
+        String encryptedPassword = AES.encrypt(String.valueOf(password), secretKey);
         password = null;
         User user = new User(email, encryptedPassword); // create a new user
 
@@ -259,7 +260,7 @@ public class Driver {
 
 
                 if (user != null) { // succesfull log in
-                    String decryptedPassword = decryptPassword(user.getPassword());
+                    String decryptedPassword = AES.decrypt(user.getPassword(), secretKey) ;
                     if (decryptedPassword.equals(String.valueOf(password))) {
                         decryptedPassword = null;
                         password = null; // reset password 
