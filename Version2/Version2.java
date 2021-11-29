@@ -169,7 +169,7 @@ public class Driver {
                 System.out.println("Something went wrong. Please start again.");
             }
         }
-}
+    }
 
     private static User createUser() {
         System.out.println("\nCreate user");
@@ -289,8 +289,6 @@ public class Driver {
                         }
                     }
                 }
-            } else {
-                System.out.println("Database could not be found.");
             }
         } catch (Exception ex) {
             System.out.println("Database could not be found.");
