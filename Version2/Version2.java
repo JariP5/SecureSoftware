@@ -83,6 +83,8 @@ public class Driver {
                     Double money = Double.parseDouble(line);
                     if (!user.add(money)) {
                         System.out.println("Adding the money would exceed the maximum allowed amount. " + errorMessage + "\n");
+                    } else if (money < 0) {
+                        System.out.println("You need to enter a positive amount. " + errorMessage + "\n");
                     } else {
                         if (storeUsers()) {
                             System.out.println("Account updated.\n");
@@ -112,6 +114,8 @@ public class Driver {
                     Double money = Double.parseDouble(line);
                     if (!user.subtract(money)) {
                         System.out.println("You do not have that much money on your account " + errorMessage + "\n");
+                    } else if (money < 0) {
+                        System.out.println("You need to enter a positive amount. " + errorMessage + "\n");
                     } else {
                         if (storeUsers()) {
                             System.out.println("Account updated.");
