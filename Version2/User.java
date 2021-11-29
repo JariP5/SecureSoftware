@@ -30,6 +30,10 @@ public class User implements Serializable {
     }
 
     public boolean add(Double x) {
+        if (this.data >= Double.MAX_VALUE - x) {
+            return false;
+        }
+        
         if (this.data + x <= max) {
             this.data += x;
             return true;
