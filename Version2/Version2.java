@@ -396,18 +396,6 @@ public class Driver {
         // If all conditions fails 
         return true; 
     }
-
-
-    // needs to be completed
-    private static String encryptPassword(String password) {
-        return password;
-    }
-
-    // needs to be completed
-    private static String decryptPassword(String password) {
-        return password;
-    }
-
     
     public static void main(String[] args) {
         
