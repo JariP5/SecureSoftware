@@ -154,7 +154,7 @@ public class Driver {
             } else if (choice == 2) {
                 addMoney(user);
             } else if (choice == 3) {
-                System.out.println("You have $" + user.getData() + " on your account.\n");
+                System.out.printf("You have $ %.2f on your account.\n\n", user.getData());
             } else if (choice == 4) { // log out
                 user = null;
                 System.out.println("You are logged out. You are data is safe. Good bye.");
@@ -214,7 +214,7 @@ public class Driver {
             password = cnsl.readPassword("Enter password : "); // read password into character array
             
             // user can go back to the main menu by only pressing "b"
-            if (email.length() == 1 && email.contains("b")) {
+            if (password.length == 1 && password[0] == 'b') {
                 return null;
             } else {
                 // validate password
